@@ -10,6 +10,8 @@ import { GiBrain, GiCube, GiJetFighter } from 'react-icons/gi';
 import Image from 'next/image';
 import Contact from './Contact';
 import About from './About';
+import Experience from './Experience';
+import Footer from './Footer';
 
 // Projects data
 const projects = [
@@ -612,6 +614,9 @@ export default function Portfolio() {
           </div>
         </div>
       </section>
+
+      {/* Experience Section */}
+      <Experience/>
       
       {/* Achievements Section */}
       <section id="achievements" className="py-20 md:py-32 bg-gradient-to-b from-gray-900/50 to-gray-950/50">
@@ -731,28 +736,7 @@ export default function Portfolio() {
       <Contact />
       
       {/* Footer */}
-      <footer className="py-8 border-t border-gray-800">
-        <div className="container mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="mb-4 md:mb-0">
-              <p className="text-gray-400 text-sm">
-                &copy; {new Date().getFullYear()} Syed Adnan Ali. All rights reserved.
-              </p>
-            </div>
-            <div className="flex gap-4">
-              <a href="https://github.com/username" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
-                <FaGithub />
-              </a>
-              <a href="https://linkedin.com/in/username" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
-                <FaLinkedin />
-              </a>
-              <a href="https://twitter.com/username" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
-                <FaTwitter />
-              </a>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer/>
     </>
   );
 } 
