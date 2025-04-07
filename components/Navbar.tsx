@@ -79,7 +79,7 @@ return () => window.removeEventListener('scroll', handleScroll);
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <span className="text-cyan-500">S.</span>Adnan Ali
+            <span className="text-cyan-500"></span>Adnan
           </motion.a>
           {/* Desktop Navigation */}
           <nav className="hidden items-center gap-8 md:flex">

@@ -228,7 +228,7 @@ export default function Portfolio() {
                 <div className="relative w-48 h-48 md:w-64 md:h-64 mx-auto rounded-full overflow-hidden border-4 border-cyan-500/20">
                   <Image 
                     src="/avatar-placeholder.jpg" 
-                    alt="Abhishek" 
+                    alt="Adnan" 
                     fill 
                     className="object-cover"
                     onError={(e) => {
@@ -257,10 +257,10 @@ export default function Portfolio() {
                 </p>
                 
                 <div className="flex gap-4">
-                  <a href="https://github.com/username" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+                  <a href="https://github.com/Adnan-The-Coder" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                     <FaGithub size={24} />
                   </a>
-                  <a href="https://linkedin.com/in/username" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+                  <a href="https://linkedin.com/in/syedadnanali99" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                     <FaLinkedin size={24} />
                   </a>
                   <a href="mailto:syedadnanali0106@gmail.com" className="text-gray-400 hover:text-white transition-colors">
