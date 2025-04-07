@@ -1,3 +1,4 @@
+/* eslint-disable tailwindcss/enforces-negative-arbitrary-values */
 'use client';
 
 import { useRef, useEffect, useState } from 'react';
@@ -243,7 +244,6 @@ const Hero = () => {
             >
               Work Experience
             </motion.h2>
-            
             <div className="relative ml-6 border-l-2 border-cyan-500/40 py-4 pl-8 md:ml-12">
               {experience.map((job, index) => (
                 <motion.div 
@@ -258,7 +258,6 @@ const Hero = () => {
                 >
                   {/* Timeline dot */}
                   <div className="absolute -left-[4.5rem] top-6 size-5 rounded-full bg-cyan-500 shadow-lg shadow-cyan-500/30 md:-left-[4.5rem]" />
-                  
                   <h3 className="mb-1 text-2xl font-bold text-white text-shadow-md">{job.position}</h3>
                   <div className="mb-4 flex flex-wrap items-center justify-between">
                     <h4 className="text-xl text-cyan-400 text-shadow-sm">{job.company}</h4>
