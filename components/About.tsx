@@ -24,7 +24,7 @@ function About() {
                   <div className="md:col-span-2">
                     <div className="relative w-48 h-48 md:w-64 md:h-64 mx-auto rounded-full overflow-hidden border-4 border-cyan-500/20">
                       <Image 
-                        src="/avatar-placeholder.jpg" 
+                        src="/assets/trial_logo.jpg" 
                         alt="Adnan" 
                         fill 
                         className="object-cover"
