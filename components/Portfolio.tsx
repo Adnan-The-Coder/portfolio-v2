@@ -16,29 +16,71 @@ const projects = [
     description: 'Founder & CEO. A platform with robust global network-based serverless infrastructure helping businesses tap into the digital world.',
     tech: ['Next.js', 'Node.js', 'Cloudflare Workers', 'Serverless'],
     link: 'https://electroplix.com',
-    image: '/placeholder-project.jpg',
+    image: '/assets/electroplix_landingPage.png',
     featured: true,
   },
   {
     title: 'Desktop Assistant',
     description: 'Complete desktop assistant with graphical user interface built on Python and Tkinter GUI, with 25+ features inspired from Iron Man Jarvis.',
     tech: ['Python', 'Tkinter', 'AI', 'GUI Development'],
-    link: 'https://github.com/username/desktop-assistant',
-    image: '/placeholder-project.jpg',
+    link: 'https://youtu.be/aj7t6DxpHAE?si=TwS45Pdqxvw7GXz-',
+    image: '/assets/jarvis_desktop_assistant.png',
   },
   {
-    title: 'E-Commerce Platform',
+    title: 'EdTech Platform',
+    description: 'Dive into the world of creativity creating Websites which are modern and stylish designed for the future. Built using cutting-edge technologies like NEXT.JS, Tailwind CSS, and TypeScript, it offers interactive options and a wealth of resources to fuel your passion. Hobby Master - Embrace the future, ignite your imagination.',
+    tech: ['React', 'Node.js', 'MongoDB', 'Payment Gateway Integration'],
+    link: 'https://hobbymaster.xyz',
+    image: '/assets/EdTechPlatform.png',
+  },
+  {
+    title: 'Qubit Platform',
     description: 'Full-stack e-commerce platform with secure payment processing and real-time inventory management.',
     tech: ['React', 'Node.js', 'MongoDB', 'Payment Gateway Integration'],
-    link: 'https://github.com/username/ecommerce-platform',
-    image: '/placeholder-project.jpg',
+    link: 'https://qubit.mobi',
+    image: '/assets/Qubit.png',
+  },
+  {
+    title: 'Time Management System',
+    description: 'Master your time with Toggle, a revolutionary time management system built using Python. With SQL database connectivity, it ensures seamless data handling and storage. Its intriguing Tkinter GUI offers an intuitive and engaging user experience.',
+    tech: ['HonoJS', 'Cloudflare Workers', 'NeonDB', 'TypeScript'],
+    link: 'https://www.youtube.com/watch?v=SSAMQDuCp5w',
+    image: '/assets/TimeManagementToggle.png',
+  },
+  {
+    title: 'Airways Management System',
+    description: 'Navigate the skies with ease using COPS, a cutting-edge airways management system built using Python. Designed to revolutionize air traffic control, COPS brings efficiency and precision to your operations. Experience the future of airways management with COPS - Soaring above, beyond expectations.',
+    tech: ['HonoJS', 'Cloudflare Workers', 'NeonDB', 'TypeScript'],
+    link: 'https://www.youtube.com/watch?v=S-bOqnopwSI',
+    image: '/assets/AirwaysManagement.png',
+  },
+  {
+    title: 'Face Recognition System',
+    description: "Developed using Python and OpenCV. Experience the magic of technology as it identifies faces with remarkable precision. Follow our video tutorial to build your own system. Let's explore the fascinating realm of face recognition together on this thrilling tech journey!🚀",
+    tech: ['HonoJS', 'Cloudflare Workers', 'NeonDB', 'TypeScript'],
+    link: 'https://www.youtube.com/watch?v=I0gnK2D82-4',
+    image: '/assets/FaceRecognition.png',
   },
   {
     title: 'Serverless API System',
     description: 'High-performance API system built with HonoJS running on Cloudflare Workers with powerful database integration.',
     tech: ['HonoJS', 'Cloudflare Workers', 'NeonDB', 'TypeScript'],
-    link: 'https://github.com/username/serverless-api',
-    image: '/placeholder-project.jpg',
+    link: 'https://github.com/Adnan-The-Coder/serverless-cloudflare-basic-api',
+    image: '/assets/serverlessBunAPI.png',
+  },
+  {
+    title: 'API built using JAVA SpringBoot',
+    description: 'High-performance API system built with HonoJS running on Cloudflare Workers with powerful database integration.',
+    tech: ['HonoJS', 'Cloudflare Workers', 'NeonDB', 'TypeScript'],
+    link: 'https://github.com/Adnan-The-Coder/API-with-JAVA-spring-boot',
+    image: '/assets/JavaSpringBoot.png',
+  },
+  {
+    title: 'Bluetooth Speaker',
+    description: 'High-performance API system built with HonoJS running on Cloudflare Workers with powerful database integration.',
+    tech: ['Circuits', 'Bluetooth Module', 'Sound Amplifier'],
+    link: 'https://youtu.be/I8PtBlfB30o?si=nWiTWTCcABqIRVN3',
+    image: '/assets/speakerBuild.jpeg',
   },
 ];
 
@@ -57,7 +99,7 @@ const skills = {
     { name: 'BunJS', icon: "🧄", level: 85 },
     { name: 'HonoJS', icon: "🔥", level: 85 },
     { name: 'Elysia', icon: "🏝️", level: 80 },
-    { name: 'Java', icon: <FaJava className="text-[#007396]" />, level: 75 },
+    { name: 'Java', icon: <FaJava className="text-[#007396]" />, level: 35 },
     { name: 'Python', icon: <FaPython className="text-[#3776AB]" />, level: 90 },
     { name: 'C', icon: <SiC className="text-[#A8B9CC]" />, level: 75 },
   ],
@@ -307,7 +349,9 @@ export default function Portfolio() {
                   <Image 
                     src={project.image} 
                     alt={project.title} 
+                    // width={700}
                     fill 
+                    // height={400}
                     className="object-cover"
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
