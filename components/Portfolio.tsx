@@ -353,10 +353,10 @@ export default function Portfolio() {
                     fill 
                     // height={400}
                     className="object-cover"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.src = "https://via.placeholder.com/800x600?text=Project";
-                    }}
+                    // onError={(e) => {
+                    //   const target = e.target as HTMLImageElement;
+                    //   target.src = "https://via.placeholder.com/800x600?text=Project";
+                    // }}
                   />
                 </div>
                 <div className="p-8 flex flex-col">
