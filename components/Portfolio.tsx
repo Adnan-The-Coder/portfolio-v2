@@ -41,7 +41,7 @@ const projects = [
     title: 'Qubit Platform',
     description: 'Qubit.mobi is the digital presence of Qubit, a dynamic platform offering a suite of services designed to enhance user engagement and growth. Their offerings include Quickie, a seamless e-commerce solution for convenient shopping; QuickGig, a freelancing hub connecting professionals with businesses; and Quantumania, a collaborative community for quantum enthusiasts to share ideas and resources. ',
     tech: ['Next.JS', 'Node.js', 'NeonDB','prisma'],
-    link: 'https://qubit.mobi',
+    link: 'https://qubit-bug-resolver-and-build.vercel.app/',
     image: '/assets/Qubit.png',
   },
   {
