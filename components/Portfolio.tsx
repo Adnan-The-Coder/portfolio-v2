@@ -12,6 +12,7 @@ import Contact from './Contact';
 import About from './About';
 import Experience from './Experience';
 import Footer from './Footer';
+import CyberParticleBackground from './CyberParticleBG';
 
 // Projects data
 const projects = [
@@ -183,7 +184,8 @@ export default function Portfolio() {
   
   return (
     <>
-      <ParticleBackground />
+      {/* <ParticleBackground /> */}
+      <CyberParticleBackground/>
       
       {/* Hero Section */}
       <section id="home" ref={homeRef} className="min-h-screen flex flex-col justify-center items-center relative overflow-hidden bg-black">
