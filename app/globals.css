@@ -19,3 +19,129 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
+.code-rain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('/code-matrix.png');
+  background-size: cover;
+  animation: scrollBackground 20s linear infinite;
+}
+
+@keyframes scrollBackground {
+  from { background-position: 0 0; }
+  to { background-position: 0 1000px; }
+}
+
+.glitch-text {
+  position: relative;
+  text-shadow: 0 0 5px rgba(0, 255, 0, 0.7);
+}
+
+.glitch-text:before, .glitch-text:after {
+  content: "Hi, I'm Syed Adnan Ali";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch-text:before {
+  left: 2px;
+  text-shadow: -2px 0 #ff00c1;
+  animation: glitch-anim-1 2s infinite linear alternate-reverse;
+}
+
+.glitch-text:after {
+  left: -2px;
+  text-shadow: 2px 0 #00fff9;
+  animation: glitch-anim-2 3s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim-1 {
+  0% { clip-path: inset(100% 0 0 0); }
+  5% { clip-path: inset(45% 0 41% 0); }
+  10% { clip-path: inset(8% 0 18% 0); }
+  15% { clip-path: inset(95% 0 6% 0); }
+  20% { clip-path: inset(23% 0 69% 0); }
+  25% { clip-path: inset(42% 0 28% 0); }
+  30% { clip-path: inset(0 0 99% 0); }
+  35% { clip-path: inset(67% 0 7% 0); }
+  40% { clip-path: inset(0 0 19% 0); }
+  45% { clip-path: inset(99% 0 2% 0); }
+  50% { clip-path: inset(0 0 39% 0); }
+  55% { clip-path: inset(9% 0 75% 0); }
+  60% { clip-path: inset(39% 0 0 0); }
+  65% { clip-path: inset(98% 0 3% 0); }
+  70% { clip-path: inset(0 0 35% 0); }
+  75% { clip-path: inset(47% 0 40% 0); }
+  80% { clip-path: inset(73% 0 0 0); }
+  85% { clip-path: inset(0 0 37% 0); }
+  90% { clip-path: inset(57% 0 31% 0); }
+  95% { clip-path: inset(10% 0 82% 0); }
+  100% { clip-path: inset(78% 0 23% 0); }
+}
+
+@keyframes glitch-anim-2 {
+  0% { clip-path: inset(21% 0 45% 0); }
+  5% { clip-path: inset(95% 0 6% 0); }
+  10% { clip-path: inset(0 0 67% 0); }
+  15% { clip-path: inset(39% 0 25% 0); }
+  20% { clip-path: inset(16% 0 84% 0); }
+  25% { clip-path: inset(68% 0 8% 0); }
+  30% { clip-path: inset(43% 0 27% 0); }
+  35% { clip-path: inset(5% 0 53% 0); }
+  40% { clip-path: inset(99% 0 1% 0); }
+  45% { clip-path: inset(0 0 37% 0); }
+  50% { clip-path: inset(65% 0 15% 0); }
+  55% { clip-path: inset(85% 0 4% 0); }
+  60% { clip-path: inset(29% 0 35% 0); }
+  65% { clip-path: inset(0 0 73% 0); }
+  70% { clip-path: inset(47% 0 46% 0); }
+  75% { clip-path: inset(26% 0 32% 0); }
+  80% { clip-path: inset(80% 0 20% 0); }
+  85% { clip-path: inset(18% 0 81% 0); }
+  90% { clip-path: inset(54% 0 14% 0); }
+  95% { clip-path: inset(0 0 31% 0); }
+  100% { clip-path: inset(62% 0 38% 0); }
+}
+
+.typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid transparent;
+  animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+.terminal-box {
+  position: relative;
+  overflow: hidden;
+}
+
+.terminal-box:before {
+  content: "$ whoami";
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.5rem 1rem;
+  font-family: monospace;
+  color: #10b981;
+  font-size: 0.875rem;
+  border-bottom: 1px solid rgba(16, 185, 129, 0.3);
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.terminal-box p {
+  margin-top: 2rem;
+}
