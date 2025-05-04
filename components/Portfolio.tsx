@@ -232,7 +232,7 @@ export default function Portfolio() {
         <h2 className="text-xl md:text-3xl font-mono text-gray-300 typewriter">
           Software_Developer.exe
         </h2>
-        <span className="text-green-500 animate-pulse">_</span>
+        <span className="text-green-500 animate-pulse">_._</span>
       </motion.div>
       
       <motion.div 
