@@ -198,7 +198,7 @@ export default function Portfolio() {
   </div>
   
   {/* Hexagon grid pattern overlay */}
-  <div className="absolute inset-0 bg-[url('/hexagon-grid.png')] bg-repeat opacity-5 z-0"></div>
+  <div className="absolute inset-0 bg-[url('https://adnanthecoder.com/assets/hexagon-grid.png')] bg-repeat opacity-5 z-0"></div>
   
   <motion.div 
     className="container mx-auto px-6 py-24 text-center relative z-10"

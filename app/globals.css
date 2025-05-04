@@ -27,7 +27,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: url('/code-matrix.png');
+  background: url('https://adnanthecoder.com/assets/code-matrix.png');
   background-size: cover;
   animation: scrollBackground 20s linear infinite;
 }
