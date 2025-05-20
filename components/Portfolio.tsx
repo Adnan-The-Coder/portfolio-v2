@@ -24,7 +24,7 @@ const projects = [
     link: 'https://electroplix.com',
     image: '/assets/electroplix_landingPage.png',
     featured: true,
-    githubLink: 'https://github.com/Adnan-The-Coder/electroplix-version-1/'
+    githubLink: ''
   },
   {
     title: 'PlantoMart',
