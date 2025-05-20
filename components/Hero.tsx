@@ -1,372 +1,151 @@
-/* eslint-disable tailwindcss/enforces-negative-arbitrary-values */
-'use client';
+"use client";
+import React, { useEffect, useRef, useState } from 'react';
+import { motion, useAnimation, useScroll, useTransform } from 'framer-motion';
 
-import { useRef, useEffect, useState } from 'react';
-import { gsap } from 'gsap';
-import { motion } from 'framer-motion';
-
-import SceneWrapper from './SceneWrapper';
-
-// Tech skills from the resume
-const skills = [
-  { name: "React/Next.js", level: 95, category: "frontend" },
-  { name: "TypeScript", level: 90, category: "frontend" },
-  { name: "Node.js", level: 88, category: "backend" },
-  { name: "Three.js/WebGL", level: 85, category: "frontend" },
-  { name: "AWS/Cloud", level: 92, category: "devops" },
-  { name: "Python/Django", level: 85, category: "backend" },
-  { name: "Database Design", level: 90, category: "backend" },
-  { name: "UI/UX Design", level: 88, category: "design" },
-];
-
-// Featured projects from the resume
-const projects = [
-  {
-    title: "Interactive 3D Portfolio",
-    description: "Dynamic web portfolio with Three.js visualizations and interactive elements",
-    tech: ["React", "Three.js", "GSAP", "TypeScript"],
-    category: "frontend",
-  },
-  {
-    title: "E-Commerce Platform",
-    description: "Scalable online store with real-time inventory management",
-    tech: ["Next.js", "Node.js", "MongoDB", "AWS"],
-    category: "fullstack",
-  },
-  {
-    title: "AI-Powered Analytics Dashboard",
-    description: "Real-time data processing with machine learning visualizations",
-    tech: ["React", "Python", "TensorFlow", "D3.js"],
-    category: "data",
-  },
-  {
-    title: "Cloud Infrastructure Automation",
-    description: "DevOps solution for cloud resource management",
-    tech: ["Terraform", "AWS", "Docker", "Python"],
-    category: "devops",
-  },
-];
-
-// Experience highlights
-const experience = [
-  {
-    position: "Senior Frontend Developer",
-    company: "Tech Innovations Inc.",
-    period: "2020 - Present",
-    highlights: [
-      "Led development of interactive data visualization platforms",
-      "Implemented 3D graphics using Three.js and WebGL",
-      "Optimized performance for complex web applications"
-    ]
-  },
-  {
-    position: "Full Stack Engineer",
-    company: "Digital Solutions Agency",
-    period: "2017 - 2020",
-    highlights: [
-      "Architected scalable backend services using Node.js",
-      "Developed responsive UI components with React",
-      "Integrated cloud services and API systems"
-    ]
-  },
-  {
-    position: "Web Developer",
-    company: "Creative Web Studio",
-    period: "2015 - 2017",
-    highlights: [
-      "Created interactive web experiences for clients",
-      "Implemented frontend animations and transitions",
-      "Collaborated with design team on UI implementation"
-    ]
-  }
-];
-
-const Hero = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const textRef = useRef<HTMLHeadingElement>(null);
-  const [activeSection, setActiveSection] = useState('home');
+// This is the upgraded Hero component with enhanced 3D tech glitch effect
+function Hero() {
+  const controls = useAnimation();
+  const homeRef = useRef(null);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [activeFilter, setActiveFilter] = useState('all');
 
+  // Scroll animations
+  const { scrollYProgress } = useScroll();
+  const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
+  const translateY = useTransform(scrollYProgress, [0, 0.2], [0, -50]);
+  
+  // Animation on load
   useEffect(() => {
-    if (!containerRef.current || !textRef.current) return;
-
-    const init = async () => {
-      try {
-        await new Promise(resolve => setTimeout(resolve, 1000));
-        setIsLoaded(true);
-        
-        gsap.from(containerRef.current!, {
-          opacity: 0,
-          duration: 2,
-          ease: "power2.inOut",
-        });
-
-        gsap.from(textRef.current!, {
-          opacity: 0,
-          y: 50,
-          duration: 2,
-          delay: 1,
-          ease: "power2.out",
-        });
-
-        gsap.to(textRef.current!, {
-          color: "#00ffff",
-          duration: 2,
-          delay: 3,
-          ease: "power2.inOut",
-        });
-      } catch (error) {
-        console.error('Error during initialization:', error);
-      }
-    };
-
-    init();
-  }, []);
-
-  const filteredProjects = activeFilter === 'all' 
-    ? projects 
-    : projects.filter(project => project.category === activeFilter);
-
-  const renderSection = () => {
-    if (!isLoaded) return null;
-
-    switch (activeSection) {
-      case 'projects':
-        return (
-          <div className="mx-auto w-full max-w-7xl px-4">
-            <motion.h2 
-              initial={{ opacity: 0 }} 
-              animate={{ opacity: 1 }} 
-              className="mb-8 text-center text-4xl font-bold text-cyan-500 text-shadow-lg"
-            >
-              Featured Projects
-            </motion.h2>
-            <div className="mb-8 flex justify-center gap-4 rounded-full bg-[#0a0a1a]/70 p-3 backdrop-blur-sm">
-              {['all', 'frontend', 'fullstack', 'data', 'devops'].map((filter) => (
-                <button
-                  key={filter}
-                  onClick={() => setActiveFilter(filter)}
-                  className={`rounded-full px-4 py-2 ${
-                    activeFilter === filter 
-                      ? 'bg-cyan-500 font-bold text-gray-900' 
-                      : 'bg-gray-800/50 text-gray-300 hover:bg-gray-700/50'
-                  } capitalize transition-all`}
-                >
-                  {filter}
-                </button>
-              ))}
-            </div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="grid grid-cols-1 gap-8 p-8 md:grid-cols-2 lg:grid-cols-3"
-            >
-              {filteredProjects.map((project, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ 
-                    opacity: 1, 
-                    y: 0,
-                    transition: { delay: index * 0.1 }
-                  }}
-                  whileHover={{ scale: 1.05, y: -5 }}
-                  className="flex h-full flex-col rounded-xl border border-cyan-500/30 bg-[#0a0a1a]/80 p-6 shadow-lg shadow-cyan-500/10 backdrop-blur-lg"
-                >
-                  <h3 className="mb-3 text-2xl font-bold text-cyan-400 text-shadow-sm">{project.title}</h3>
-                  <p className="mb-4 grow text-white">{project.description}</p>
-                  <div className="mt-auto flex flex-wrap gap-2">
-                    {project.tech.map((tech, i) => (
-                      <span key={i} className="rounded-full border border-cyan-500/20 bg-cyan-500/10 px-3 py-1 text-sm text-cyan-400">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-        );
-      case 'skills':
-        return (
-          <div className="mx-auto w-full max-w-4xl px-4">
-            <motion.h2 
-              initial={{ opacity: 0 }} 
-              animate={{ opacity: 1 }} 
-              className="mb-8 text-center text-4xl font-bold text-cyan-500 text-shadow-lg"
-            >
-              Technical Skills
-            </motion.h2>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="grid grid-cols-1 gap-8 rounded-xl border border-cyan-500/20 bg-[#0a0a1a]/70 p-6 shadow-xl backdrop-blur-md md:grid-cols-2"
-            >
-              {skills.map((skill, index) => (
-                <motion.div 
-                  key={index} 
-                  initial={{ x: -50, opacity: 0 }}
-                  animate={{ 
-                    x: 0, 
-                    opacity: 1,
-                    transition: { delay: index * 0.1 } 
-                  }}
-                  className="mb-6"
-                >
-                  <div className="mb-2 flex justify-between">
-                    <span className="font-medium text-cyan-400 text-shadow-sm">{skill.name}</span>
-                    <span className="text-white">{skill.level}%</span>
-                  </div>
-                  <div className="h-3 overflow-hidden rounded-full border border-gray-700/50 bg-gray-800/80 backdrop-blur-sm">
-                    <motion.div
-                      initial={{ width: 0 }}
-                      animate={{ width: `${skill.level}%` }}
-                      transition={{ duration: 1.5, delay: 0.2 + index * 0.1, ease: "easeOut" }}
-                      className="h-full rounded-full"
-                      style={{ 
-                        background: `linear-gradient(90deg, #0ff, #7700ff ${skill.level}%)` 
-                      }}
-                    />
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-        );
-      case 'experience':
-        return (
-          <div className="mx-auto w-full max-w-4xl px-4">
-            <motion.h2 
-              initial={{ opacity: 0 }} 
-              animate={{ opacity: 1 }} 
-              className="mb-8 text-center text-4xl font-bold text-cyan-500 text-shadow-lg"
-            >
-              Work Experience
-            </motion.h2>
-            <div className="relative ml-6 border-l-2 border-cyan-500/40 py-4 pl-8 md:ml-12">
-              {experience.map((job, index) => (
-                <motion.div 
-                  key={index}
-                  initial={{ opacity: 0, x: -50 }}
-                  animate={{ 
-                    opacity: 1, 
-                    x: 0,
-                    transition: { delay: index * 0.2 } 
-                  }}
-                  className="relative mb-12 rounded-xl border border-cyan-500/20 bg-[#0a0a1a]/70 p-6 shadow-lg backdrop-blur-md"
-                >
-                  {/* Timeline dot */}
-                  <div className="absolute -left-[4.5rem] top-6 size-5 rounded-full bg-cyan-500 shadow-lg shadow-cyan-500/30 md:-left-[4.5rem]" />
-                  <h3 className="mb-1 text-2xl font-bold text-white text-shadow-md">{job.position}</h3>
-                  <div className="mb-4 flex flex-wrap items-center justify-between">
-                    <h4 className="text-xl text-cyan-400 text-shadow-sm">{job.company}</h4>
-                    <span className="mt-2 rounded-full bg-gray-800/60 px-3 py-1 text-sm text-white sm:mt-0">
-                      {job.period}
-                    </span>
-                  </div>
-                  <ul className="ml-5 list-disc space-y-2 text-white">
-                    {job.highlights.map((highlight, i) => (
-                      <motion.li 
-                        key={i}
-                        initial={{ opacity: 0 }}
-                        animate={{ 
-                          opacity: 1,
-                          transition: { delay: 0.3 + index * 0.2 + i * 0.1 } 
-                        }}
-                      >
-                        {highlight}
-                      </motion.li>
-                    ))}
-                  </ul>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        );
-      default:
-        return (
+    controls.start({ opacity: 1, y: 0 });
+    
+    // Small delay to ensure CSS animations trigger properly
+    const timer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 500);
+    
+    return () => clearTimeout(timer);
+  }, [controls]);
+  
+  return (
+    <section id="home" ref={homeRef} className="min-h-screen flex flex-col justify-center items-center relative overflow-hidden bg-black">
+      {/* Matrix-like background effect */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-900 via-black to-black opacity-80 z-0"></div>
+      
+      {/* Animated code lines in background */}
+      <div className="absolute inset-0 opacity-20 z-0">
+        <div className="code-rain"></div>
+      </div>
+      
+      {/* Hexagon grid pattern overlay */}
+      <div className="absolute inset-0 bg-[url('https://adnanthecoder.com/assets/hexagon-grid.png')] bg-repeat opacity-5 z-0"></div>
+      
+      <motion.div 
+        className="container mx-auto px-6 py-24 text-center relative z-10"
+        initial={{ opacity: 0 }}
+        animate={controls}
+        transition={{ duration: 1 }}
+      >
+        <div className="max-w-4xl mx-auto">
+          {/* Enhanced 3D Tech Glitch effect on name */}
           <motion.div
+            className="tech-glitch-wrapper mb-4 perspective-1000"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="mx-auto max-w-3xl px-4 text-center"
+            transition={{ delay: 0.2, duration: 0.8 }}
           >
-            <h1 ref={textRef} className="mb-6 text-5xl font-bold text-white text-shadow-lg sm:text-6xl md:text-7xl">
-              Hi, I'm <span className="text-cyan-500">John Doe</span>
+            <h1 className={`text-4xl md:text-6xl font-bold text-white relative ${isLoaded ? 'tech-glitch-text' : ''}`}>
+              <span className="tech-bracket text-gray-300 relative">{"<"}</span>
+              <span className="tech-intro relative">Hi, I'm </span> 
+              <span className="tech-name relative">
+                <span className={`tech-name-text font-mono ${isLoaded ? 'tech-glitch-active' : ''}`}>Syed Adnan Ali</span>
+                {isLoaded && (
+                  <>
+                    <span className="tech-name-ghost tech-ghost-1 font-mono">Syed Adnan Ali</span>
+                    <span className="tech-name-ghost tech-ghost-2 font-mono">Syed Adnan Ali</span>
+                    <span className="tech-highlight"></span>
+                    <span className="tech-scan-line"></span>
+                  </>
+                )}
+              </span>
+              <span className="tech-bracket text-gray-300 relative">{"/"}</span>
+              <span className="tech-bracket text-gray-300 relative">{">"}</span>
+              
+              {/* Decorative elements */}
+              <span className="tech-corner tech-corner-tl"></span>
+              <span className="tech-corner tech-corner-tr"></span>
+              <span className="tech-corner tech-corner-bl"></span>
+              <span className="tech-corner tech-corner-br"></span>
+              
+              {/* Digital noise overlay */}
+              <span className="tech-digital-noise"></span>
             </h1>
-            <h2 className="mb-8 text-2xl text-cyan-400 text-shadow-md sm:text-3xl">
-              Full Stack Developer & 3D Web Specialist
+          </motion.div>
+          
+          {/* Terminal-style typewriter effect */}
+          <motion.div 
+            className="flex justify-center items-center mb-6"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+          >
+            <span className="text-green-500 mr-2 font-mono tech-prompt">$</span>
+            <h2 className="text-xl md:text-3xl font-mono text-gray-300 tech-typewriter">
+              Software_Developer.exe
+              <span className="text-green-500 tech-cursor">_</span>
             </h2>
-            <p className="mb-10 rounded-xl border border-cyan-500/20 bg-[#0a0a1a]/60 p-6 text-xl leading-relaxed text-white shadow-xl backdrop-blur-sm">
-              Creating immersive digital experiences with cutting-edge web technologies.
-              Specializing in interactive 3D visualizations, modern frontend frameworks,
-              and scalable backend solutions.
+          </motion.div>
+          
+          <motion.div 
+            className="bg-gray-900/70 backdrop-blur-sm border border-green-500/30 rounded-lg p-6 mb-8 max-w-3xl mx-auto terminal-box shadow-lg shadow-green-500/10 relative tech-terminal"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+          >
+            <div className="tech-terminal-header absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-green-500/0 via-green-500/70 to-green-500/0"></div>
+            <p className="text-lg text-gray-400 font-mono text-left">
+              <span className="text-green-400">{">"}</span> A passionate full-stack developer and founder of 
+              <span className="text-cyan-400"> Electroplix</span>, currently pursuing a degree in 
+              <span className="text-cyan-400"> Computer Science Engineering</span>, with hands-on experience in building 
+              <span className="text-green-400"> scalable</span> and <span className="text-green-400">dynamic</span> end-to-end applications.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <motion.button
-                whileHover={{ scale: 1.05, y: -5 }}
-                whileTap={{ scale: 0.95 }}
-                className="rounded-full bg-cyan-500 px-8 py-3 text-lg font-bold text-gray-900 transition-all hover:shadow-lg hover:shadow-cyan-500/30"
-                onClick={() => setActiveSection('projects')}
-              >
-                View Projects
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.05, y: -5 }}
-                whileTap={{ scale: 0.95 }}
-                className="rounded-full border-2 border-cyan-500 bg-transparent px-8 py-3 text-lg font-bold text-cyan-400 transition-all hover:bg-cyan-500/10"
-                onClick={() => window.open('/assets/Resume v2.pdf', '_blank')}
-              >
-                Download Resume
-              </motion.button>
+            <div className="tech-terminal-scan absolute top-0 left-0 right-0 bottom-0 pointer-events-none"></div>
+          </motion.div>
+          
+          <motion.div 
+            className="flex flex-wrap justify-center gap-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 0.8 }}
+          >
+            <a 
+              href="#projects" 
+              className="bg-green-500 hover:bg-green-600 text-gray-900 font-mono font-bold px-8 py-3 rounded transition-all flex items-center gap-2 border border-green-400 hover:shadow-lg hover:shadow-green-500/30 tech-button"
+            >
+              <span>{'{'}</span> VIEW_PROJECTS <span>{'}'}</span>
+              <span className="tech-button-glow"></span>
+            </a>
+            <a 
+              href="#contact" 
+              className="bg-transparent border-2 border-green-500 text-green-400 hover:bg-green-500/10 font-mono font-bold px-8 py-3 rounded transition-all flex items-center gap-2 hover:shadow-lg hover:shadow-green-500/20 tech-button-outline"
+            >
+              <span>{'['}</span> CONTACT <span>{']'}</span>
+              <span className="tech-button-glow"></span>
+            </a>
+          </motion.div>
+          
+          <motion.div 
+            className="mt-16"
+            style={{ opacity, y: translateY }}
+          >
+            <p className="text-gray-500 mb-4 font-mono">./scroll_to_explore.sh</p>
+            <div className="w-6 h-10 border-2 border-green-500/50 rounded-full mx-auto relative tech-scroll-indicator">
+              <div className="w-1.5 h-1.5 bg-green-500 rounded-full mx-auto animate-bounce mt-2"></div>
             </div>
           </motion.div>
-        );
-    }
-  };
-
-  return (
-    <div ref={containerRef} className="relative min-h-screen w-full overflow-hidden">
-      <div className="absolute inset-0 z-0">
-        <SceneWrapper />
-      </div>
-      <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-b from-[#0a0a1a]/50 via-[#0a0a1a]/50 to-[#0a0a1a]/90" />
-      <div className="absolute inset-0 z-20 flex flex-col">
-        <header className="w-full py-6">
-          <nav className="mx-auto flex max-w-7xl flex-wrap items-center justify-center px-4 md:justify-between">
-            <div className="mb-4 text-2xl font-bold text-cyan-500 md:mb-0">Portfolio</div>
-            <div className="flex flex-wrap justify-center gap-2 sm:gap-6">
-              {['home', 'projects', 'skills', 'experience'].map((section) => (
-                <button
-                  key={section}
-                  onClick={() => setActiveSection(section)}
-                  className={`rounded-full px-4 py-2 text-white transition-all ${
-                    activeSection === section 
-                      ? 'border border-cyan-500/30 bg-cyan-500/20 font-bold text-cyan-400' 
-                      : 'hover:text-cyan-400'
-                  } capitalize`}
-                >
-                  {section}
-                </button>
-              ))}
-              <a 
-                href="mailto:contact@example.com"
-                className="rounded-full bg-cyan-500 px-4 py-2 font-bold text-gray-900 transition-colors hover:bg-cyan-400"
-              >
-                Contact
-              </a>
-            </div>
-          </nav>
-        </header>
-        <main className="flex flex-1 items-center justify-center overflow-y-auto py-16">
-          {renderSection()}
-        </main>
-        <footer className="py-4 text-center text-sm text-gray-400">
-          <p>© 2023 John Doe. All rights reserved.</p>
-        </footer>
-      </div>
-    </div>
+        </div>
+      </motion.div>
+    </section>
   );
-};
+}
 
 export default Hero;
+
