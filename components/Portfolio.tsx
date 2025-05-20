@@ -17,12 +17,22 @@ import CyberParticleBackground from './CyberParticleBG';
 // Projects data
 const projects = [
   {
-    title: 'Electroplix',
+    title: 'Electroplix [v1]',
     description: 'Founder & CEO. A platform with robust global network-based serverless infrastructure helping businesses tap into the digital world.',
     tech: ['Next.js', 'Node.js', 'Cloudflare Workers', 'Serverless'],
     link: 'https://electroplix.com',
     image: '/assets/electroplix_landingPage.png',
     featured: true,
+    githubLink: 'https://github.com/Adnan-The-Coder/electroplix-version-1/'
+  },
+  {
+    title: 'PlantoMart',
+    description: `Planto-Mart is a full stack Ecommerce Multi-Vendor Platform, enabling vendors to list products, facilitating customers to purchase products across different vendors. Each Vendor has it's own Dashboard to manage all of it's shop's products and view analytics and much more`,
+    tech: ['Next.js', 'bunJS', 'Supabase','TailwindCSS'],
+    link: 'https://main-website-plantomart.pages.dev/',
+    image: '/assets/PlantoMart.png',
+    featured: true,
+    githubLink: 'https://github.com/Planto-Mart/Main-Website'
   },
   {
     title: 'Desktop Assistant',
@@ -30,6 +40,7 @@ const projects = [
     tech: ['Python', 'Tkinter', 'AI', 'GUI Development'],
     link: 'https://youtu.be/aj7t6DxpHAE?si=TwS45Pdqxvw7GXz-',
     image: '/assets/jarvis_desktop_assistant.png',
+    githubLink: ''
   },
   {
     title: 'EdTech Platform',
@@ -37,6 +48,7 @@ const projects = [
     tech: ['React', 'Node.js', 'MongoDB', 'Payment Gateway Integration'],
     link: 'https://hobbymaster.xyz',
     image: '/assets/EdTechPlatform.png',
+    githubLink: 'https://github.com/Adnan-The-Coder/hobby-master-website'
   },
   {
     title: 'Qubit Platform',
@@ -44,6 +56,7 @@ const projects = [
     tech: ['Next.JS', 'Node.js', 'NeonDB','prisma'],
     link: 'https://qubit-bug-resolver-and-build.vercel.app/',
     image: '/assets/Qubit.png',
+    githubLink: 'https://github.com/Adnan-The-Coder/Qubit-Bug-resolver-and-build'
   },
   {
     title: 'Time Management System',
@@ -51,6 +64,7 @@ const projects = [
     tech: ['Python', 'Tkinter GUI', 'MySQL'],
     link: 'https://www.youtube.com/watch?v=SSAMQDuCp5w',
     image: '/assets/TimeManagementToggle.png',
+    githubLink: ''
   },
   {
     title: 'Airways Management System',
@@ -58,6 +72,7 @@ const projects = [
     tech: ['Python', 'Tkinter GUI', 'API Integrations'],
     link: 'https://www.youtube.com/watch?v=S-bOqnopwSI',
     image: '/assets/AirwaysManagement.png',
+    githubLink: ''
   },
   {
     title: 'Face Recognition System',
@@ -65,6 +80,7 @@ const projects = [
     tech: ['Python', 'OpenCV'],
     link: 'https://www.youtube.com/watch?v=I0gnK2D82-4',
     image: '/assets/FaceRecognition.png',
+    githubLink: ''
   },
   {
     title: 'Serverless API System',
@@ -72,6 +88,7 @@ const projects = [
     tech: ['HonoJS', 'Cloudflare Workers', 'NeonDB', 'TypeScript'],
     link: 'https://github.com/Adnan-The-Coder/serverless-cloudflare-basic-api',
     image: '/assets/serverlessBunAPI.png',
+    githubLink: 'https://github.com/Adnan-The-Coder/advance-serverless-api'
   },
   {
     title: 'API built using JAVA SpringBoot',
@@ -79,6 +96,7 @@ const projects = [
     tech: ['JAVA', 'Spring Boot', 'Maven'],
     link: 'https://github.com/Adnan-The-Coder/API-with-JAVA-spring-boot',
     image: '/assets/JavaSpringBoot.png',
+    githubLink: 'https://github.com/Adnan-The-Coder/API-with-JAVA-spring-boot'
   },
   {
     title: 'Bluetooth Speaker',
@@ -86,6 +104,7 @@ const projects = [
     tech: ['Circuits', 'Bluetooth Module', 'Sound Amplifier'],
     link: 'https://youtu.be/I8PtBlfB30o?si=nWiTWTCcABqIRVN3',
     image: '/assets/speakerBuild.jpeg',
+    githubLink: null
   },
 ];
 
@@ -308,104 +327,126 @@ export default function Portfolio() {
           </motion.div>
           
           {/* Featured Project */}
-          {projects.filter(p => p.featured).map((project, index) => (
-            <motion.div 
-              key={`featured-${index}`}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.1 }}
-              transition={{ duration: 0.8 }}
-              className="max-w-5xl mx-auto mb-20 bg-gray-900/50 backdrop-blur-sm rounded-xl overflow-hidden shadow-lg border border-gray-800"
-            >
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="relative h-64 md:h-full">
-                  <div className="absolute inset-0 bg-cyan-500/20"></div>
-                  <Image 
-                    src={project.image} 
-                    alt={project.title} 
-                    // width={700}
-                    fill 
-                    // height={400}
-                    className="object-cover"
-                    // onError={(e) => {
-                    //   const target = e.target as HTMLImageElement;
-                    //   target.src = "https://via.placeholder.com/800x600?text=Project";
-                    // }}
-                  />
-                </div>
-                <div className="p-8 flex flex-col">
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-white mb-3">{project.title}</h3>
-                    <p className="text-gray-300 mb-6">{project.description}</p>
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {project.tech.map((tech, i) => (
-                        <span key={i} className="text-xs font-medium px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                  <a 
-                    href={project.link} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="bg-cyan-500 hover:bg-cyan-600 text-gray-900 font-medium px-6 py-2 rounded-full self-start transition-all"
-                  >
-                    Visit Project
-                  </a>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-          
-          {/* Other Projects */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.filter(p => !p.featured).map((project, index) => (
-              <motion.div 
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.1 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                className="bg-gray-900/50 backdrop-blur-sm rounded-xl overflow-hidden shadow-lg border border-gray-800 flex flex-col h-full hover:shadow-cyan-500/5 hover:border-cyan-500/30 transition-all"
+{projects.filter(p => p.featured).map((project, index) => (
+  <motion.div 
+    key={`featured-${index}`}
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, amount: 0.1 }}
+    transition={{ duration: 0.8 }}
+    className="max-w-5xl mx-auto mb-20 bg-gray-900/50 backdrop-blur-sm rounded-xl overflow-hidden shadow-lg border border-gray-800"
+  >
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="relative h-64 md:h-full">
+        <div className="absolute inset-0 bg-cyan-500/20"></div>
+        <Image 
+          src={project.image} 
+          alt={project.title} 
+          fill 
+          className="object-cover"
+        />
+      </div>
+      <div className="p-8 flex flex-col">
+        <div className="flex-1">
+          <div className="flex justify-between items-center mb-3">
+            <h3 className="text-2xl font-bold text-white">{project.title}</h3>
+            {project.githubLink && project.githubLink !== '' && (
+              <a 
+                href={project.githubLink} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-cyan-400 transition-colors"
+                title="View Source Code"
               >
-                <div className="relative h-48">
-                  <Image 
-                    src={project.image} 
-                    alt={project.title} 
-                    fill 
-                    className="object-cover"
-                    // onError={(e) => {
-                    //   const target = e.target as HTMLImageElement;
-                    //   target.src = "https://via.placeholder.com/400x300?text=Project";
-                    // }}
-                  />
-                </div>
-                <div className="p-6 flex-1 flex flex-col">
-                  <h3 className="text-xl font-bold text-white mb-3">{project.title}</h3>
-                  <p className="text-gray-300 mb-4 flex-1">{project.description}</p>
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {project.tech.map((tech, i) => (
-                      <span key={i} className="text-xs font-medium px-2 py-1 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                  <a 
-                    href={project.link} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-cyan-400 hover:text-cyan-300 font-medium flex items-center gap-2 transition-colors"
-                  >
-                    View Project
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M7 17l9.2-9.2M17 17V7H7" />
-                    </svg>
-                  </a>
-                </div>
-              </motion.div>
+                <FaGithub size={20} />
+              </a>
+            )}
+            {project.githubLink === '' && (
+              <span className="text-xs text-gray-500 italic">Source code coming soon</span>
+            )}
+          </div>
+          <p className="text-gray-300 mb-6">{project.description}</p>
+          <div className="flex flex-wrap gap-2 mb-6">
+            {project.tech.map((tech, i) => (
+              <span key={i} className="text-xs font-medium px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+                {tech}
+              </span>
             ))}
           </div>
+        </div>
+        <a 
+          href={project.link} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="bg-cyan-500 hover:bg-cyan-600 text-gray-900 font-medium px-6 py-2 rounded-full self-start transition-all"
+        >
+          Visit Project
+        </a>
+      </div>
+    </div>
+  </motion.div>
+))}
+
+{/* Other Projects */}
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+  {projects.filter(p => !p.featured).map((project, index) => (
+    <motion.div 
+      key={index}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.8, delay: index * 0.1 }}
+      className="bg-gray-900/50 backdrop-blur-sm rounded-xl overflow-hidden shadow-lg border border-gray-800 flex flex-col h-full hover:shadow-cyan-500/5 hover:border-cyan-500/30 transition-all"
+    >
+      <div className="relative h-48">
+        <Image 
+          src={project.image} 
+          alt={project.title} 
+          fill 
+          className="object-cover"
+        />
+      </div>
+      <div className="p-6 flex-1 flex flex-col">
+        <div className="flex justify-between items-center mb-3">
+          <h3 className="text-xl font-bold text-white">{project.title}</h3>
+          {project.githubLink && project.githubLink !== '' && (
+            <a 
+              href={project.githubLink} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-cyan-400 transition-colors"
+              title="View Source Code"
+            >
+              <FaGithub size={18} />
+            </a>
+          )}
+          {project.githubLink === '' && (
+            <span className="text-xs gap-1 text-gray-500 italic">Source code coming soon</span>
+          )}
+        </div>
+        <p className="text-gray-300 mb-4 flex-1">{project.description}</p>
+        <div className="flex flex-wrap gap-2 mb-6">
+          {project.tech.map((tech, i) => (
+            <span key={i} className="text-xs font-medium px-2 py-1 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+              {tech}
+            </span>
+          ))}
+        </div>
+        <a 
+          href={project.link} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="text-cyan-400 hover:text-cyan-300 font-medium flex items-center gap-2 transition-colors"
+        >
+          View Project
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M7 17l9.2-9.2M17 17V7H7" />
+          </svg>
+        </a>
+      </div>
+    </motion.div>
+  ))}
+</div>
         </div>
       </section>
       
