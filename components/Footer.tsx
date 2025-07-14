@@ -31,7 +31,7 @@ function Footer() {
   const particles = Array.from({ length: 20 }, (_, i) => (
     <div 
       key={i}
-      className="absolute w-1 h-1 bg-cyan-500 rounded-full opacity-30"
+      className="absolute size-1 rounded-full bg-cyan-500 opacity-30"
       style={{
         left: `${Math.random() * 100}%`,
         top: `${Math.random() * 100}%`,
@@ -41,20 +41,19 @@ function Footer() {
   ));
 
   return (
-    <footer className="relative py-16 bg-gray-950 overflow-hidden">
+    <footer className="relative overflow-hidden bg-gray-950 py-16">
       {/* Tech circuit pattern overlay */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute left-1/4 top-0 h-full w-px bg-gradient-to-b from-transparent via-cyan-500 to-transparent" />
         <div className="absolute left-2/4 top-0 h-full w-px bg-gradient-to-b from-transparent via-cyan-500 to-transparent" />
         <div className="absolute left-3/4 top-0 h-full w-px bg-gradient-to-b from-transparent via-cyan-500 to-transparent" />
-        <div className="absolute top-1/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-500 to-transparent" />
-        <div className="absolute top-2/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-500 to-transparent" />
+        <div className="absolute left-0 top-1/3 h-px w-full bg-gradient-to-r from-transparent via-cyan-500 to-transparent" />
+        <div className="absolute left-0 top-2/3 h-px w-full bg-gradient-to-r from-transparent via-cyan-500 to-transparent" />
         {particles}
       </div>
-
       <div className="container relative mx-auto px-6">
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12"
+          className="mb-12 grid grid-cols-1 gap-10 md:grid-cols-3"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -63,43 +62,41 @@ function Footer() {
           {/* Logo and tagline section */}
           <motion.div variants={itemVariants} className="flex flex-col items-center md:items-start">
             <div className="mb-4 flex items-center">
-              <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500">
+              <span className="bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-2xl font-bold text-transparent">
                 &lt;Adnan/&gt;
               </span>
             </div>
-            <p className="text-gray-400 text-sm text-center md:text-left">
+            <p className="text-center text-sm text-gray-400 md:text-left">
               Building digital experiences with code, creativity, and coffee.
             </p>
           </motion.div>
-          
           {/* Quick links */}
           <motion.div variants={itemVariants} className="flex flex-col items-center md:items-start">
-            <h4 className="text-white font-medium mb-4 relative">
+            <h4 className="relative mb-4 font-medium text-white">
               <span className="relative z-10">Navigation</span>
-              <span className="absolute -bottom-1 left-0 w-12 h-1 bg-cyan-500"></span>
+              <span className="absolute -bottom-1 left-0 h-1 w-12 bg-cyan-500"></span>
             </h4>
             <div className="grid grid-cols-2 gap-x-8 gap-y-2">
-              <a href="#home" className="text-gray-400 hover:text-cyan-400 transition-colors text-sm">Home</a>
-              <a href="#about" className="text-gray-400 hover:text-cyan-400 transition-colors text-sm">About</a>
-              <a href="#projects" className="text-gray-400 hover:text-cyan-400 transition-colors text-sm">Projects</a>
-              <a href="#experience" className="text-gray-400 hover:text-cyan-400 transition-colors text-sm">Experience</a>
-              <a href="#skills" className="text-gray-400 hover:text-cyan-400 transition-colors text-sm">Skills</a>
-              <a href="#contact" className="text-gray-400 hover:text-cyan-400 transition-colors text-sm">Contact</a>
+              <a href="#home" className="text-sm text-gray-400 transition-colors hover:text-cyan-400">Home</a>
+              <a href="#about" className="text-sm text-gray-400 transition-colors hover:text-cyan-400">About</a>
+              <a href="#projects" className="text-sm text-gray-400 transition-colors hover:text-cyan-400">Projects</a>
+              <a href="#experience" className="text-sm text-gray-400 transition-colors hover:text-cyan-400">Experience</a>
+              <a href="#skills" className="text-sm text-gray-400 transition-colors hover:text-cyan-400">Skills</a>
+              <a href="#contact" className="text-sm text-gray-400 transition-colors hover:text-cyan-400">Contact</a>
             </div>
           </motion.div>
-          
           {/* Contact section */}
           <motion.div variants={itemVariants} className="flex flex-col items-center md:items-start">
-            <h4 className="text-white font-medium mb-4 relative">
+            <h4 className="relative mb-4 font-medium text-white">
               <span className="relative z-10">Connect</span>
-              <span className="absolute -bottom-1 left-0 w-12 h-1 bg-cyan-500"></span>
+              <span className="absolute -bottom-1 left-0 h-1 w-12 bg-cyan-500"></span>
             </h4>
-            <div className="flex gap-2 mb-4">
+            <div className="mb-4 flex gap-2">
               <motion.a 
                 href="https://github.com/Adnan-The-Coder" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center justify-center w-10 h-10 bg-gray-800 hover:bg-gray-700 text-cyan-400 rounded-lg transition-colors"
+                className="flex size-10 items-center justify-center rounded-lg bg-gray-800 text-cyan-400 transition-colors hover:bg-gray-700"
                 variants={iconVariants}
                 initial="initial"
                 whileHover="hover"
@@ -110,7 +107,7 @@ function Footer() {
                 href="https://linkedin.com/in/syedadnanali99" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center justify-center w-10 h-10 bg-gray-800 hover:bg-gray-700 text-cyan-400 rounded-lg transition-colors"
+                className="flex size-10 items-center justify-center rounded-lg bg-gray-800 text-cyan-400 transition-colors hover:bg-gray-700"
                 variants={iconVariants}
                 initial="initial"
                 whileHover="hover"
@@ -121,7 +118,7 @@ function Footer() {
                 href="https://www.instagram.com/adnan_the_coder" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center justify-center w-10 h-10 bg-gray-800 hover:bg-gray-700 text-cyan-400 rounded-lg transition-colors"
+                className="flex size-10 items-center justify-center rounded-lg bg-gray-800 text-cyan-400 transition-colors hover:bg-gray-700"
                 variants={iconVariants}
                 initial="initial"
                 whileHover="hover"
@@ -129,45 +126,43 @@ function Footer() {
                 <FaInstagram size={18} />
               </motion.a>
             </div>
-            <p className="text-gray-400 text-sm text-center md:text-left">
+            <p className="text-center text-sm text-gray-400 md:text-left">
               syedadnanali0106@gmail.com
             </p>
           </motion.div>
         </motion.div>
-        
         {/* Bottom section with copyright */}
         <motion.div 
-          className="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center"
+          className="flex flex-col items-center justify-between border-t border-gray-800 pt-8 md:flex-row"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1, transition: { delay: 0.5 } }}
           viewport={{ once: true }}
         >
-          <p className="flex items-center text-gray-500 text-sm mb-4 md:mb-0">
-            <span className="relative px-2 py-1 bg-gray-900 rounded-md mr-2 flex items-center">
-              <span className="absolute -top-0.5 -left-0.5 w-1.5 h-1.5 bg-cyan-500 rounded-full animate-pulse"></span>
+          <p className="mb-4 flex items-center text-sm text-gray-500 md:mb-0">
+            <span className="relative mr-2 flex items-center rounded-md bg-gray-900 px-2 py-1">
+              <span className="absolute -left-0.5 -top-0.5 size-1.5 animate-pulse rounded-full bg-cyan-500"></span>
               <BiCodeAlt className="mr-1 text-cyan-500" />
               <span>Status: Busy</span>
             </span>
             &copy; {currentYear} Syed Adnan Ali
           </p>
-          <div className="flex items-center text-gray-600 text-xs">
+          <div className="flex items-center text-xs text-gray-600">
             <span className="flex items-center">
               <FaCode className="mr-1" />
               <span>with</span>
-              <span className="text-red-500 mx-1">❤</span>
+              <span className="mx-1 text-red-500">❤</span>
               <span className="mr-2">by Adnan</span>
             </span>
-            <span className="hidden md:flex items-center border-l border-gray-700 pl-2">
+            <span className="hidden items-center border-l border-gray-700 pl-2 md:flex">
               <FaServer className="mr-1" />
               <span>v2.0.0</span>
             </span>
           </div>
         </motion.div>
       </div>
-      
       {/* Animated glow effect */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2/3 h-1 bg-gradient-to-r from-transparent via-cyan-500 to-transparent blur-sm"></div>
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/3 h-0.5 bg-gradient-to-r from-transparent via-cyan-500 to-transparent blur-sm"></div>
+      <div className="absolute bottom-0 left-1/2 h-1 w-2/3 -translate-x-1/2 bg-gradient-to-r from-transparent via-cyan-500 to-transparent blur-sm"></div>
+      <div className="absolute bottom-0 left-1/2 h-0.5 w-1/3 -translate-x-1/2 bg-gradient-to-r from-transparent via-cyan-500 to-transparent blur-sm"></div>
     </footer>
   );
 }

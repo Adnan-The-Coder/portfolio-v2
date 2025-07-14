@@ -36,24 +36,22 @@ function Experience() {
   ];
 
   return (
-    <section id="experience" className="py-20 md:py-32 opacity-90 bg-gray-900/50 backdrop-blur-sm rounded-xl border border-gray-800">
+    <section id="experience" className="rounded-xl border border-gray-800 bg-gray-900/50 py-20 opacity-90 backdrop-blur-sm md:py-32">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto mb-16 text-center"
+          className="mx-auto mb-16 max-w-4xl text-center"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+          <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
             <span className="text-cyan-400">Experience</span>
           </h2>
         </motion.div>
-        
-        <div className="max-w-3xl mx-auto relative">
+        <div className="relative mx-auto max-w-3xl">
           {/* Timeline line */}
-          <div className="absolute left-0 top-0 bottom-0 w-1 bg-gray-800 ml-4"></div>
-          
+          <div className="absolute inset-y-0 left-0 ml-4 w-1 bg-gray-800"></div>
           {/* Experience items */}
           {experiences.map((exp, index) => (
             <motion.div 
@@ -65,20 +63,18 @@ function Experience() {
               className="relative mb-12 pl-16"
             >
               {/* Timeline dot */}
-              <div className="absolute left-0 top-0 w-8 h-8 rounded-full bg-gray-900 border-4 border-orange-500 ml-0.5"></div>
-              
+              <div className="absolute left-0 top-0 ml-0.5 size-8 rounded-full border-4 border-orange-500 bg-gray-900"></div>
               {/* Period indicator */}
-              <div className="absolute left-[-80px] top-1 text-xs text-gray-400 font-medium w-20 text-right">
+              <div className="absolute left-[-80px] top-1 w-20 text-right text-xs font-medium text-gray-400">
                 {exp.period}
               </div>
-              
               {/* Content */}
-              <div className="bg-gray-900/50 backdrop-blur-sm rounded-xl overflow-hidden shadow-lg border border-gray-800 p-6">
-                <h3 className="text-xl font-bold text-white mb-1">{exp.company}</h3>
-                <p className="text-lg text-orange-500 font-bold mb-3">{exp.role}</p>
-                <p className="text-gray-300 mb-2">{exp.description}</p>
+              <div className="overflow-hidden rounded-xl border border-gray-800 bg-gray-900/50 p-6 shadow-lg backdrop-blur-sm">
+                <h3 className="mb-1 text-xl font-bold text-white">{exp.company}</h3>
+                <p className="mb-3 text-lg font-bold text-orange-500">{exp.role}</p>
+                <p className="mb-2 text-gray-300">{exp.description}</p>
                 {exp.additionalInfo && (
-                  <p className="text-gray-400 text-sm">{exp.additionalInfo}</p>
+                  <p className="text-sm text-gray-400">{exp.additionalInfo}</p>
                 )}
               </div>
             </motion.div>

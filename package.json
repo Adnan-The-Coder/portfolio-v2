@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint . --ext .js,.ts,.tsx,.jsx",
     "pages:build": "bunx @cloudflare/next-on-pages",
     "preview": "bun run pages:build && wrangler pages dev",
     "deploy": "bun run pages:build && wrangler pages deploy"
@@ -15,21 +15,30 @@
     "@cloudflare/next-on-pages": "^1.13.5",
     "@react-three/drei": "^9.99.0",
     "@react-three/fiber": "^8.15.16",
+    "@supabase/supabase-js": "^2.49.1",
+    "eslint-config-next": "^15.3.5",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-unused-imports": "^4.1.4",
     "framer-motion": "^12.6.3",
     "gsap": "^3.12.5",
     "next": "^15.2.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "@supabase/supabase-js": "^2.49.1",
     "react-icons": "^5.5.0",
     "three": "^0.161.0"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@eslint/eslintrc": "^3.3.1",
+    "@eslint/js": "^9.31.0",
     "@types/node": "^20",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
+    "eslint": "^9.31.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-tailwindcss": "^3.18.0",
     "postcss": "^8",
-    "tailwindcss": "^3.4.1"
+    "prettier": "^3.6.2",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
   }
 }
