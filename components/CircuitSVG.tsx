@@ -79,7 +79,7 @@ export default function CircuitSVG() {
         className="h-32 w-full md:h-40 lg:h-48"
         initial="hidden"
         animate="visible"
-        variants={circuitVariants}
+        // variants={circuitVariants}
       >
         {glowFilter}
         {/* Base layers */}
@@ -131,7 +131,7 @@ export default function CircuitSVG() {
           strokeWidth="1.5"
           strokeDasharray="5,5"
           fill="none"
-          variants={flowVariants}
+          // variants={flowVariants}
           animate="flow"
         />
         <motion.path
@@ -140,7 +140,7 @@ export default function CircuitSVG() {
           strokeWidth="1"
           fill="none"
           filter="url(#glow)"
-          variants={flowVariants}
+          // variants={flowVariants}
           animate="flow"
         />
         <motion.path
@@ -149,7 +149,7 @@ export default function CircuitSVG() {
           strokeWidth="0.75"
           strokeDasharray="10,5"
           fill="none"
-          variants={flowVariants}
+          // variants={flowVariants}
           animate="flow"
         />
         {/* Vertical Connection Lines */}
@@ -219,7 +219,7 @@ export default function CircuitSVG() {
               r={node.r * 2}
               fill="url(#nodeGlow)"
               opacity="0.4"
-              variants={pulseVariants}
+              // variants={pulseVariants}
               animate="pulse"
             />
           </g>
