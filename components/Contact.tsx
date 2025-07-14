@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { FaEnvelope, FaGithub } from 'react-icons/fa'
 import { createClient } from '@supabase/supabase-js'
+import {Link} from "next/Link"
 
 // Initialize Supabase client
 // You'll need to replace these with your actual Supabase URL and anon key
@@ -118,9 +119,9 @@ function Contact() {
                                         </span>
                                         <div>
                                             <p className="text-sm text-gray-400">Email</p>
-                                            <a href="mailto:syedadnanali0106@gmail.com" className="text-white hover:text-cyan-400 transition-colors">
-                                                syedadnanali0106@gmail.com
-                                            </a>
+                                            <Link href="mailto:syedadnanali0106@gmail.com" className="text-white hover:text-cyan-400 transition-colors">
+                                                contact@adnanthecoder.com
+                                            </Link>
                                         </div>
                                     </li>
                                     <li className="flex items-start gap-4">
@@ -138,7 +139,7 @@ function Contact() {
                                 <div className="mt-8">
                                     <h4 className="text-white font-medium mb-2">Electroplix</h4>
                                     <p className="text-gray-400 text-sm mb-4">Interested in my startup?</p>
-                                    <a 
+                                    <Link 
                                         href="https://electroplix.com" 
                                         className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors"
                                         target="_blank" 
@@ -148,7 +149,7 @@ function Contact() {
                                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                             <path d="M7 17l9.2-9.2M17 17V7H7" />
                                         </svg>
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
