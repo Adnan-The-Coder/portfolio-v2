@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { FaEnvelope, FaGithub } from 'react-icons/fa'
 import { createClient } from '@supabase/supabase-js'
-import {Link} from "next/Link"
+import Link from 'next/link'
 
 // Initialize Supabase client
 // You'll need to replace these with your actual Supabase URL and anon key
@@ -119,7 +119,7 @@ function Contact() {
                                         </span>
                                         <div>
                                             <p className="text-sm text-gray-400">Email</p>
-                                            <Link href="mailto:syedadnanali0106@gmail.com" className="text-white hover:text-cyan-400 transition-colors">
+                                            <Link href="mailto:contact@adnanthecoder.com" className="text-white hover:text-cyan-400 transition-colors">
                                                 contact@adnanthecoder.com
                                             </Link>
                                         </div>
