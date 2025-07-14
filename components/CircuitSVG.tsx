@@ -40,7 +40,7 @@ export default function CircuitSVG() {
       transition: {
         duration: 1.2,
         delay: 0.3,
-        type: "spring",
+        type: "spring" as const,
         stiffness: 30
       }
     }
