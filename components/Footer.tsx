@@ -51,7 +51,6 @@ function Footer() {
         <div className="absolute top-2/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-500 to-transparent" />
         {particles}
       </div>
-
       <div className="container relative mx-auto px-6">
         <motion.div 
           className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12"
@@ -71,7 +70,6 @@ function Footer() {
               Building digital experiences with code, creativity, and coffee.
             </p>
           </motion.div>
-          
           {/* Quick links */}
           <motion.div variants={itemVariants} className="flex flex-col items-center md:items-start">
             <h4 className="text-white font-medium mb-4 relative">
@@ -87,7 +85,6 @@ function Footer() {
               <a href="#contact" className="text-gray-400 hover:text-cyan-400 transition-colors text-sm">Contact</a>
             </div>
           </motion.div>
-          
           {/* Contact section */}
           <motion.div variants={itemVariants} className="flex flex-col items-center md:items-start">
             <h4 className="text-white font-medium mb-4 relative">
@@ -134,7 +131,6 @@ function Footer() {
             </p>
           </motion.div>
         </motion.div>
-        
         {/* Bottom section with copyright */}
         <motion.div 
           className="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center"
@@ -164,7 +160,6 @@ function Footer() {
           </div>
         </motion.div>
       </div>
-      
       {/* Animated glow effect */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2/3 h-1 bg-gradient-to-r from-transparent via-cyan-500 to-transparent blur-sm"></div>
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/3 h-0.5 bg-gradient-to-r from-transparent via-cyan-500 to-transparent blur-sm"></div>

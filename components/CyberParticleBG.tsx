@@ -26,15 +26,18 @@ const CyberParticleBackground = () => {
     };
 
     window.addEventListener('resize', handleResize);
+
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   useEffect(() => {
-    if (!canvasRef.current || dimensions.width === 0) return;
+    if (!canvasRef.current || dimensions.width === 0)
+       return;
 
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
-    if (!ctx) return;
+    if (!ctx) 
+      return;
 
     // Set canvas dimensions
     canvas.width = dimensions.width;
@@ -43,6 +46,7 @@ const CyberParticleBackground = () => {
     // Calculate particle density based on screen size
     const getParticleCount = () => {
       const baseDensity = dimensions.width * dimensions.height / 15000;
+
       return Math.min(Math.max(Math.floor(baseDensity), 40), 200);
     };
 
@@ -285,7 +289,7 @@ const CyberParticleBackground = () => {
       const characters = "01";
       const fontSize = 10;
       const columns = Math.floor(canvas.width / fontSize);
-      const rainDrops = Array(columns).fill(1);
+      // const _rainDrops = Array(columns).fill(1);
       
       // Only draw occasionally for subtle effect
       if (Math.random() > 0.95) {

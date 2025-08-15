@@ -29,15 +29,12 @@ function Hero() {
     <section id="home" ref={homeRef} className="min-h-screen flex flex-col justify-center items-center relative overflow-hidden bg-black">
       {/* Matrix-like background effect */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-900 via-black to-black opacity-80 z-0"></div>
-      
       {/* Animated code lines in background */}
       <div className="absolute inset-0 opacity-20 z-0">
         <div className="code-rain"></div>
       </div>
-      
       {/* Hexagon grid pattern overlay */}
       <div className="absolute inset-0 bg-[url('https://adnanthecoder.com/assets/hexagon-grid.png')] bg-repeat opacity-5 z-0"></div>
-      
       <motion.div 
         className="container mx-auto px-6 py-24 text-center relative z-10"
         initial={{ opacity: 0 }}
@@ -68,18 +65,15 @@ function Hero() {
               </span>
               <span className="tech-bracket text-gray-300 relative">{"/"}</span>
               <span className="tech-bracket text-gray-300 relative">{">"}</span>
-              
               {/* Decorative elements */}
               <span className="tech-corner tech-corner-tl"></span>
               <span className="tech-corner tech-corner-tr"></span>
               <span className="tech-corner tech-corner-bl"></span>
               <span className="tech-corner tech-corner-br"></span>
-              
               {/* Digital noise overlay */}
               <span className="tech-digital-noise"></span>
             </h1>
           </motion.div>
-          
           {/* Terminal-style typewriter effect */}
           <motion.div 
             className="flex justify-center items-center mb-6"
@@ -93,7 +87,6 @@ function Hero() {
               <span className="text-green-500 tech-cursor">_</span>
             </h2>
           </motion.div>
-          
           <motion.div 
             className="bg-gray-900/70 backdrop-blur-sm border border-green-500/30 rounded-lg p-6 mb-8 max-w-3xl mx-auto terminal-box shadow-lg shadow-green-500/10 relative tech-terminal"
             initial={{ opacity: 0, y: 20 }}
@@ -109,7 +102,6 @@ function Hero() {
             </p>
             <div className="tech-terminal-scan absolute top-0 left-0 right-0 bottom-0 pointer-events-none"></div>
           </motion.div>
-          
           <motion.div 
             className="flex flex-wrap justify-center gap-4"
             initial={{ opacity: 0, y: 20 }}
@@ -131,10 +123,9 @@ function Hero() {
               <span className="tech-button-glow"></span>
             </a>
           </motion.div>
-          
           <motion.div 
             className="mt-16"
-            style={{ opacity, y: translateY }}
+            style={{ opacity: opacity, y: translateY }}
           >
             <p className="text-gray-500 mb-4 font-mono">./scroll_to_explore.sh</p>
             <div className="w-6 h-10 border-2 border-green-500/50 rounded-full mx-auto relative tech-scroll-indicator">
@@ -148,4 +139,3 @@ function Hero() {
 }
 
 export default Hero;
-

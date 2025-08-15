@@ -49,11 +49,9 @@ function Experience() {
             <span className="text-cyan-400">Experience</span>
           </h2>
         </motion.div>
-        
         <div className="max-w-3xl mx-auto relative">
           {/* Timeline line */}
           <div className="absolute left-0 top-0 bottom-0 w-1 bg-gray-800 ml-4"></div>
-          
           {/* Experience items */}
           {experiences.map((exp, index) => (
             <motion.div 
@@ -66,12 +64,10 @@ function Experience() {
             >
               {/* Timeline dot */}
               <div className="absolute left-0 top-0 w-8 h-8 rounded-full bg-gray-900 border-4 border-orange-500 ml-0.5"></div>
-              
               {/* Period indicator */}
               <div className="absolute left-[-80px] top-1 text-xs text-gray-400 font-medium w-20 text-right">
                 {exp.period}
               </div>
-              
               {/* Content */}
               <div className="bg-gray-900/50 backdrop-blur-sm rounded-xl overflow-hidden shadow-lg border border-gray-800 p-6">
                 <h3 className="text-xl font-bold text-white mb-1">{exp.company}</h3>

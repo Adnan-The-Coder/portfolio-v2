@@ -82,7 +82,6 @@ export default function CircuitSVG() {
         variants={circuitVariants}
       >
         {glowFilter}
-
         {/* Base layers */}
         <path
           d="M0,200 L0,85 
@@ -98,7 +97,6 @@ export default function CircuitSVG() {
           fill="#0f172a"
           opacity="0.9"
         />
-
         <path
           d="M0,200 L0,110 
              C50,105 100,120 150,110 
@@ -113,7 +111,6 @@ export default function CircuitSVG() {
           fill="#111827"
           opacity="0.7"
         />
-
         <path
           d="M0,200 L0,135 
              C50,137 100,132 150,134 
@@ -127,7 +124,6 @@ export default function CircuitSVG() {
              L1200,200 Z"
           fill="#0f1729"
         />
-
         {/* Horizontal Circuit Lines */}
         <motion.path
           d="M0,140 L1200,140"
@@ -138,7 +134,6 @@ export default function CircuitSVG() {
           variants={flowVariants}
           animate="flow"
         />
-
         <motion.path
           d="M0,150 L300,150 L300,130 L600,130 L600,150 L900,150 L900,130 L1200,130"
           stroke="url(#blueGradient)"
@@ -148,7 +143,6 @@ export default function CircuitSVG() {
           variants={flowVariants}
           animate="flow"
         />
-
         <motion.path
           d="M0,160 L400,160 L400,120 L800,120 L800,160 L1200,160"
           stroke="#10b981"
@@ -158,7 +152,6 @@ export default function CircuitSVG() {
           variants={flowVariants}
           animate="flow"
         />
-
         {/* Vertical Connection Lines */}
         <motion.line
           x1="200" y1="140" x2="200" y2="100"
@@ -169,7 +162,6 @@ export default function CircuitSVG() {
           animate={{ pathLength: 1 }}
           transition={{ duration: 1.5, delay: 0.5 }}
         />
-
         <motion.line
           x1="500" y1="150" x2="500" y2="80"
           stroke="#06b6d4"
@@ -179,7 +171,6 @@ export default function CircuitSVG() {
           animate={{ pathLength: 1 }}
           transition={{ duration: 1.5, delay: 0.7 }}
         />
-
         <motion.line
           x1="700" y1="130" x2="700" y2="90"
           stroke="#10b981"
@@ -189,7 +180,6 @@ export default function CircuitSVG() {
           animate={{ pathLength: 1 }}
           transition={{ duration: 1.5, delay: 1 }}
         />
-
         <motion.line
           x1="1000" y1="160" x2="1000" y2="70"
           stroke="#06b6d4"
@@ -199,7 +189,6 @@ export default function CircuitSVG() {
           animate={{ pathLength: 1 }}
           transition={{ duration: 1.5, delay: 1.2 }}
         />
-
         {/* Nodes */}
         {[
           { x: 200, y: 140, r: 3, delay: 1.5 },
@@ -235,7 +224,6 @@ export default function CircuitSVG() {
             />
           </g>
         ))}
-
         {/* Data Flow Particles */}
         {mounted && (
           <>
@@ -294,7 +282,6 @@ export default function CircuitSVG() {
             />
           </>
         )}
-
         {/* Digital Circuit Details */}
         <motion.path
           d="M450,110 L475,110 L475,105 L500,105 L500,110 L525,110"
@@ -306,7 +293,6 @@ export default function CircuitSVG() {
           animate={{ pathLength: 1 }}
           transition={{ duration: 1, delay: 2 }}
         />
-
         <motion.path
           d="M700,90 L725,90 L725,85 L750,85 L750,90 L775,90"
           stroke="#06b6d4"
@@ -317,7 +303,6 @@ export default function CircuitSVG() {
           animate={{ pathLength: 1 }}
           transition={{ duration: 1, delay: 2.2 }}
         />
-
         <motion.path
           d="M950,120 L975,120 L975,115 L1000,115 L1000,120 L1025,120"
           stroke="#10b981"
@@ -328,7 +313,6 @@ export default function CircuitSVG() {
           animate={{ pathLength: 1 }}
           transition={{ duration: 1, delay: 2.4 }}
         />
-
         {/* Hexagon Node Details */}
         {[
           { x: 200, y: 100, size: 8, delay: 2.6 },
