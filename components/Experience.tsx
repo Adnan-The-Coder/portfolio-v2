@@ -5,6 +5,14 @@ function Experience() {
   const experiences = [
     {
       id: 1,
+      period: "7-25 - Now",
+      company: "NavigoRides",
+      role: "Founding Engineer",
+      description: "Actively building and scaling a robust, productiondeployed backend using edge computing and serverless architecture. Designing custom components like load balancers and request routers to ensure low latency, reliability, and seamless integration across the stack.",
+      additionalInfo: ""
+    },
+    {
+      id: 2,
       period: "8-21 - Now",
       company: "Electroplix",
       role: "FOUNDER & CEO",
@@ -12,21 +20,21 @@ function Experience() {
       additionalInfo: "Keeping sustainable solutions to drive business growth which are secure, efficient and scalable."
     },
     {
-      id: 2,
-      period: "10-24 - Now",
+      id: 3,
+      period: "10-24 - 07-25",
       company: "Entrepreneurship Cell, MJCET",
       role: "TECH CAPTAIN",
       description: "Developed and refactored Web technologies"
     },
     {
-      id: 3,
+      id: 4,
       period: "5-22 - 9-24",
       company: "Freelance",
       role: "FULL STACK WEB DEVELOPER",
       description: "Built 6+ Web Projects and Optimized website builds for businesses"
     },
     {
-      id: 4,
+      id: 5,
       period: "8-22 - 10-24",
       company: "Hobby Master",
       role: "PYTHON DEVELOPER",
