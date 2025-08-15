@@ -24,7 +24,7 @@ function Footer() {
 
   const iconVariants = {
     initial: { scale: 1 },
-    hover: { scale: 1.2, rotate: 5, transition: { type: "spring", stiffness: 400 } }
+    hover: { scale: 1.2, rotate: 5, transition: { type: "spring" as const, stiffness: 400 } }
   };
 
   // Particle elements for tech aesthetic
